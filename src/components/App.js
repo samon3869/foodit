@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getFoods } from '../api';
 import FoodList from './FoodList';
 
@@ -21,6 +21,10 @@ function App() {
   };
 
   const sortedItems = items.sort((a, b) => b[order] - a[order]);
+
+  useEffect(() => {
+    handleLoad();
+  }, []);
 
   return (
     <div>
